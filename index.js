@@ -1,4 +1,5 @@
-import {images} from '.fetchDataImages.js';
+import {images} from './fetchImages.js';
+import {data} from './fetchData.js'
 
 const base_URL = 'https://random-d.uk/api'
 const gallery = document.getElementById('gallery');
@@ -13,15 +14,30 @@ const fetchDucks = async (breed) => {
         }
 
         const data = await response.json();
-        images.push(...data.data)
+        images.push(...data.images);
         totalPages = data.totalPages;
         page++;
+            } catch (error) {
+            // console.log(error);
             }
-        }
+};
             
             function searchDuckBreed() {
                 const searchInput = document.getElementById('search-input');
                 const breedName = searchInput.value.trim()
+
+                if (breedName) {
+                    displayBreedInfo(breedName, 'breed-info-4');
+
+                } else {
+                    alert('Search for the duck breed!')
+                }
+
+                function handleSearch() {
+                    const searchInput = document.getElementById('search-input');
+                    searchQuery = searchInput.value.trim();
+                    loadDucks(1, searchQuery);
+                }
             }
 
         

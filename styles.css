@@ -13,6 +13,19 @@ header {
     padding: 1rem;
 }
 
+.background-image {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100;
+    height: auto;
+    background-image: url('./duckim.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    opacity: inherit;
+}
+
 h1 {
     margin: 0;
 }
