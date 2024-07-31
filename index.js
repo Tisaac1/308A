@@ -1,5 +1,5 @@
 import {images} from './fetchImages.js';
-// import {data} from './fetchData.js'
+
 
 const base_URL = 'https://random-d.uk/api'
 const gallery = document.getElementById('gallery');
@@ -42,4 +42,4 @@ const fetchDucks = async (breed) => {
 
           
 
-        
+            git push
