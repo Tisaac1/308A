@@ -1,5 +1,5 @@
 import {images} from './fetchImages.js';
-import {data} from './fetchData.js'
+// import {data} from './fetchData.js'
 
 const base_URL = 'https://random-d.uk/api'
 const gallery = document.getElementById('gallery');
@@ -8,7 +8,7 @@ let page = 1;
 
 const fetchDucks = async (breed) => {
     try {
-        const response = await axios (`${base_URL}`)/"https://random-d.uk/api/images/51.jpg";
+        const response = await axios (`${base_URL}`/"https://random-d.uk/api/randomimg");
         if(!response.ok) {
             throw new Error('Failed to fetch duck gallary.');
         }
@@ -18,7 +18,7 @@ const fetchDucks = async (breed) => {
         totalPages = data.totalPages;
         page++;
             } catch (error) {
-            // console.log(error);
+             console.log(error);
             }
 };
             
@@ -39,5 +39,7 @@ const fetchDucks = async (breed) => {
                     loadDucks(1, searchQuery);
                 }
             }
+
+          
 
         
