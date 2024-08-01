@@ -1,44 +1,53 @@
 import {images} from './fetchImages.js';
-import {email} from './validateemail.js'
+import {email} from './validateemail.js';
+import axios from 'axios';
 
 
-const base_URL = 'https://random-d.uk/api/randomimg4'
+const base_URL = 'https://random-d.uk/api/randomimg'
 const gallery = document.getElementById('gallery');
 const loadmoreBtn = document.getElementById('loadMoreBtn');
+
 let page = 1;
 
 const fetchDucks = async (breed) => {
     try {
-        const response = await images.axios (`${base_URL}`) 
+        const response = await axios.got (`${base_URL}?page=${page}`) 
             throw new Error('Failed to fetch duck gallary.');
+            const data = response.data;
+           
         
         const email = await response.json();
-        images.push(...images.email);
-        totalPages = email.totalPages;
+        images.push(...images.data);
+        totalPages = data.totalPages;
         page++;
             } catch (error) {
-             console.log(error);
+             console.error('Failed to load',error);
             }
 };
             
             function searchDuckBreed() {
-                const searchInput = document.getElementById('search-input');
+                const searchInput = document.getElementById('searchInput');
                 const breedName = searchInput.value.trim()
 
                 if (breedName) {
-                    displayBreedInfo(breedName, 'breed-info-0');
+                    displayBreedInfo(breedName, 'breed-info-4');
 
                 } else {
                     alert('Search for the duck breed!')
                 }
-                Image.innerHTML = `<img src="${base_URL}" alt="Random Image" style="max-width: 100%;">`;
+                Image.innerHTML = `<img src="${base_URL}" 'https://random-d.uk/' style="max-width: 100%;">`;
             }
-
+            
+    
                 function handleSearch() {
-                    const searchInput = document.getElementById('search-input');
+                    const searchInput = document.getElementById('searchInput');
                     searchQuery = searchInput.value.trim();
                     loadDucks(1, searchQuery);
                 }
+
+                loadmoreBtn.addEventListener('click', () => {
+                    fetchDucks();
+                });
             
 
           

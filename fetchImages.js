@@ -8,6 +8,6 @@ const photReq = await axios.get('https://random-d.uk/api/randomimg')
 const photo = await photoReq.data
 
 console.log(photo,photo[0].src.orginal)
-const img = document.createElemnt('Image2')
+const img = document.createElement('Image2')
 img.classList.add('duck')
 }
