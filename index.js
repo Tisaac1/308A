@@ -26,7 +26,7 @@ fetchData();
 
     
         
-        const email = await response.json();
+        const Breed = await response.json();
         images.push(...images.data);
         totalPages = data.totalPages;
         page++;
@@ -35,8 +35,7 @@ fetchData();
             }
 
             
-            function searchDuckBreed() {
-                const searchInput = document.getElementById('searchInput');
+            function displayBreedsInDropdown() {
                 const breedName = searchInput.value.trim()
 
                 if (breedName) {
@@ -52,7 +51,7 @@ fetchData();
                 function handleSearch() {
                     const searchInput = document.getElementById('searchInput');
                     searchQuery = searchInput.value.trim();
-                    loadDucks(page, searchQuery);
+                    loadDucks(breedName, searchQuery);
                 }
 
                 loadmoreBtn.addEventListener('click', () => {

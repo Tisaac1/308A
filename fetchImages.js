@@ -1,8 +1,8 @@
-import {email } from './validateemail.js';
+
 import { Breed } from './index.js';
 
 export async function displayBreedsInDropdown(BreedCode) {
-    const BreedData = awaitemail();
+    const BreedData = awaitBreed();
     const selectedBreed = BreedData.find(Breed => Breed.BreedCode === BreedCode);
     
     if (selectedBreed) {
