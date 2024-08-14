@@ -3,18 +3,24 @@ import {email} from './validateemail.js';
 import axios from 'axios';
 
 
-const base_URL = 'https://random-d.uk/api/randomimg'
+const base_URL = 'https://random-d.uk/api'
 const gallery = document.getElementById('gallery');
 const loadmoreBtn = document.getElementById('loadMoreBtn');
 
 let page = 1;
-
-const fetchDucks = async (breed) => {
+const fetchData = async () => {
+    try {
+        // Make a GET request
+        const response = await fetch(baseURL);const fetchDucks = async (breed) =>   {  }; //Code did not work 
     try {
         const response = await axios.got (`${base_URL}?page=${page}`) 
             throw new Error('Failed to fetch duck gallary.');
             const data = response.data;
-           
+  
+    
+// Call the function to fetch data
+fetchData();
+    
         
         const email = await response.json();
         images.push(...images.data);
@@ -23,7 +29,7 @@ const fetchDucks = async (breed) => {
             } catch (error) {
              console.error('Failed to load',error);
             }
-};
+
             
             function searchDuckBreed() {
                 const searchInput = document.getElementById('searchInput');

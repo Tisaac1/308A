@@ -1,13 +1,22 @@
-async function getPhoto(e) {
-    e.preventDefault()
-    console.log(e.target.value)
- document.getElementById('Image').innerHTML = ''
+import {email } from './validateemail.js';
+import { ducks } from './index.js';
 
-const query = duckSelect.value
-const photReq = await axios.get('https://random-d.uk/api/randomimg')
-const photo = await photoReq.data
+export async function displayBreedsInDropdown(BreedCode) {
+    const BreedData = awaitemail();
+    const selectedBreed = BreedData.find(Breed => Breed.BreedCode === BreedCode);
+    
+    if (selectedBreed) {
+        const BreedImage = await fetchBreedImage(BreedCode);
 
-console.log(photo,photo[0].src.orginal)
-const img = document.createElement('Image2')
-img.classList.add('duck')
+        const BreedInfoDiv = document.getElementById('BreedInfo');
+        BreedInfoDiv.innerHTML = `
+        <h3>${selectedBreed.Homeland}</h3>
+        <p>${selectedBreed.description}</p>
+        <p><strong>breed:</strong> ${selectedBreed.ducks}</p>
+        <p><strong>URL:</strong> <a href="${selectedBreed.url}" target="_blank">${selectedBreed.url}</a></p>
+        ${BreedImage ? `<img src="${BreedImage}" alt="${selectedBreed.fullName} Image">` : ''}
+        `;
+        } else {
+            console.error('Selected Breed data not found.')
+        }
 }
