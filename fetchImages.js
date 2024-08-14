@@ -1,5 +1,5 @@
 import {email } from './validateemail.js';
-import { ducks } from './index.js';
+import { Breed } from './index.js';
 
 export async function displayBreedsInDropdown(BreedCode) {
     const BreedData = awaitemail();
